@@ -5,6 +5,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 export default function CountriesScreen() {
   const countries = useSelector((state) => state.country.value);
+  const dispatch = useDispatch();
 
   console.log(countries);
   const arr = countries.lastCountries.map((country, i) => {
@@ -22,7 +23,7 @@ export default function CountriesScreen() {
         <FontAwesome
           name="trash-o"
           style={style.icon}
-          onPress={() => handlePressRemove(country.nameCity)}
+          onPress={() => handlePressRemove()}
         />
       </View>
     );
@@ -40,15 +41,18 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
-  title: { fontSize: 30 },
+  title: {
+    fontSize: 30,
+    marginTop: 30,
+  },
   scrollView: {
     alignItems: "center",
     marginTop: 20,
     maxWidth: "100%",
   },
   img: {
-    width: 10,
-    height: 15,
+    width: 50,
+    height: 30,
     objectFit: "cover",
   },
   placeCard: {
@@ -65,9 +69,13 @@ const style = StyleSheet.create({
     color: "#B733D0",
     fontSize: 23,
   },
+  name: {
+    marginLeft: 10,
+    fontSize: 20,
+  },
   jc: {
-    flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });

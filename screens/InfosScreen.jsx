@@ -28,8 +28,6 @@ export default function InfosScreen() {
       });
   }, []);
 
-  console.log(country);
-
   const pays = dataCountry.map((data, i) => {
     return (
       <View style={style.container} key={i}>
